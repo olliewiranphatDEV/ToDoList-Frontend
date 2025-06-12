@@ -7,10 +7,17 @@ const { setToken, setUserData } = useAuthStore.getState();
 export const authSignUp = async (value) => {
     return await axios.post(`${BASE_URL}/auth/register`, value)
         .then(res => {
+            const token = res.data.token;
             const userData = res.data.result;
+
+            setToken(token);
             setUserData(userData);
 
             return res;
+        })
+        .catch(err => {
+            console.error("Auth error", err);
+            throw err;
         });
 }
 
@@ -24,5 +31,12 @@ export const authSignIn = async (value) => {
 
             setToken(token);
             setUserData(userData);
+
+            return res;
+        })
+        .catch(err => {
+            console.error("Auth error", err);
+            throw err;
         });
+
 };
