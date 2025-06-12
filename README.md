@@ -34,8 +34,7 @@ This project is built with a React.js frontend and a Node.js + Express backend, 
 
 ## Live App
 
-> [Deployed on Render](https://your-render-url.com)  
-> Neon PostgreSQL Database in production
+> [Deployed on Vercel](https://todolist-frontend-ruddy.vercel.app/user/todolists)  
 
 ---
 
@@ -44,7 +43,7 @@ This project is built with a React.js frontend and a Node.js + Express backend, 
 ### Clone Repository
 
 ```bash
-git clone https://github.com/your-username/ToDoList-Frontend.git
+git clone https://github.com/olliewiranphatDEV/ToDoList-Frontend
 
 npm i
 npm run dev
