@@ -9,13 +9,14 @@ export const authSignUp = async (value) => {
 }
 
 export const authSignIn = async (value) => {
-    return await axios.post("http://localhost:8083/auth/signin", value)
+    return await axios.post(`${BASE_URL}/auth/signin`, value)
         .then(res => {
             console.log('res >>', res);
 
             const token = res.data.token;
             const userData = res.data.result;
+
             setToken(token);
             setUserData(userData);
-        })
-}
+        });
+};
