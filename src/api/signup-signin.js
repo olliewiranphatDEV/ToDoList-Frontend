@@ -6,6 +6,12 @@ const { setToken, setUserData } = useAuthStore.getState();
 
 export const authSignUp = async (value) => {
     return await axios.post(`${BASE_URL}/auth/register`, value)
+        .then(res => {
+            const userData = res.data.result;
+            setUserData(userData);
+
+            return res;
+        });
 }
 
 export const authSignIn = async (value) => {
