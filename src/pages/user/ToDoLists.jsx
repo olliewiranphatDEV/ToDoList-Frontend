@@ -66,7 +66,8 @@ const ToDoLists = () => {
 
                 <TodoHeader />
 
-                <div className="w-full flex flex-col gap-3 py-3 px-2 sm:px-4">
+
+                <div className="w-full flex flex-col gap-3 py-3 px-2 sm:px-4 min-h-[250px]">
                     {todoData.todoItems?.length === 0 ? (
                         <NoHaveTodoItems setAddBTN={setAddBTN} />
                     ) : (
@@ -122,6 +123,7 @@ const ToDoLists = () => {
                     <SignOutBTN />
                 </div>
             </div>
+
 
         </div>
     );
