@@ -75,7 +75,7 @@ const ToDoLists = () => {
                                 <TodoITEM
                                     key={item.todoID}
                                     item={item}
-                                    inx={(currentPage - 1) * limit + inx + 1}
+                                    inx={todoData.total - ((currentPage - 1) * limit + inx)}
                                     setIsDeleted={setIsDeleted}
                                 />
                             ))}
