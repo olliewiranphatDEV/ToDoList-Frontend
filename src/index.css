@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* เปลี่ยนจาก 0.5 เป็น 0.2 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
