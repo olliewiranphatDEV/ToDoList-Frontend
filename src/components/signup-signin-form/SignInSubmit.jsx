@@ -4,21 +4,27 @@ import { renderAlert } from '../../utils/renderAlert';
 import { authSignIn } from '../../api/signup-signin';
 import { useNavigate } from 'react-router';
 
-function SignInSubmit() {
+function SignInSubmit({ setLoading }) {
     const navigate = useNavigate()
     const { register, handleSubmit, reset } = useForm();
 
+
     const handleSignIn = async (value) => {
+        setLoading(true)
         console.log(value);
         try {
             const res = await authSignIn(value)
             console.log('res', res);
             reset() // CLEAR ALL INPUTS
+            setLoading(false)
             renderAlert("Signin alredy!", "success")
 
             // NAVIGATE TO ANOTHER PAGE
-            navigate("/user/todolists")
+            setTimeout(() => {
+                navigate("/user/todolists")
+            }, 1000)
         } catch (error) {
+            setLoading(false)
             console.log("ERROR", error.response.data.ERROR);
             renderAlert(error.response.data.ERROR, "error")
         }

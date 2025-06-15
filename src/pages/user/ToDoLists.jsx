@@ -22,7 +22,10 @@ const ToDoLists = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
 
+    const [fetching, setFetching] = useState(false)
+
     useEffect(() => {
+        setFetching(true)
         const fetchUserTodos = async () => {
             if (!token) {
                 window.location.href = "/";
@@ -32,6 +35,8 @@ const ToDoLists = () => {
                 await actionGetAllTodos(token, currentPage);
             } catch (error) {
                 console.log("Fail to fetch user todos", error);
+            } finally {
+                setFetching(false)
             }
         };
         fetchUserTodos();
@@ -55,6 +60,7 @@ const ToDoLists = () => {
         <div className="relative flex justify-center items-center min-h-screen bg-gray-200 flex-col gap-5">
             <AlertDeleted isDeleted={isDeleted} />
 
+            {/* TODOLIST-TABLE */}
             <div className="relative w-[60%] min-h-[400px] bg-white shadow-lg rounded-2xl flex flex-col">
                 {/* ADD NEW TODO-ITEM */}
                 <button
@@ -124,7 +130,12 @@ const ToDoLists = () => {
                 </div>
             </div>
 
-
+            {
+                fetching && (<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="lightgrey" strokeWidth="2.5" stroke-linecap="round" strokeLinejoin="round"
+                    className="absolute lucide lucide-loader-circle-icon lucide-loader-circle animate-spin">
+                    <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                </svg>)
+            }
         </div>
     );
 };

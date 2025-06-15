@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import SignInSubmit from '../../components/signup-signin-form/SignInSubmit';
 import SignUpSubmit from '../../components/signup-signin-form/SignUpSubmit';
+import LoadingSkeleton from '../../components/LoadingSkeleton';
 
 function SignupSignin() {
     const [isSignUp, setIsSignUp] = useState(false)
+    const [loading, setLoading] = useState(false)
+    console.log('loading >>', loading);
 
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-200 px-4 py-10 md:px-0">
+        <div className="relative flex items-center justify-center min-h-screen bg-gray-200 px-4 py-10 md:px-0">
 
             <div className="relative max-w-[60%] shadow-2xl overflow-hidden rounded-xl">
 
@@ -40,7 +43,7 @@ function SignupSignin() {
                             : 'opacity-100 md:translate-x-full md:opacity-100'}`}
                     >
                         {/* CONTENT */}
-                        <SignInSubmit />
+                        <SignInSubmit setLoading={setLoading} />
                     </div>
 
                     {/* Sign Up Form */}
@@ -49,11 +52,15 @@ function SignupSignin() {
                             : 'opacity-0 pointer-events-none md:translate-x-0 md:opacity-0'}`}
                     >
                         {/* CONTENT */}
-                        <SignUpSubmit />
+                        <SignUpSubmit setLoading={setLoading} />
                     </div>
 
                 </div>
             </div>
+
+            {
+                loading && (<LoadingSkeleton />)
+            }
         </div>
     )
 }
