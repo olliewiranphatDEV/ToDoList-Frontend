@@ -10,7 +10,7 @@ function SignupSignin() {
 
 
     return (
-        <div className="relative flex items-center justify-center min-h-screen bg-gray-200 px-4 py-10 md:px-0">
+        <div className="relative flex items-center justify-center gap-5 md:gap-8 min-h-screen bg-gray-200 px-4 py-10 md:px-0">
 
             <div className="relative max-w-[60%] shadow-2xl overflow-hidden rounded-xl">
 
@@ -55,6 +55,18 @@ function SignupSignin() {
                         <SignUpSubmit setLoading={setLoading} />
                     </div>
 
+                </div>
+            </div>
+
+            <div className='p-4 bg-white shadow-2xl rounded-2xl flex flex-col gap-4 items-center'>
+                <strong>A Test Account</strong>
+                <div className='flex flex-col gap-4'>
+                    <span><strong>Email:</strong> test.todolist@mail.com</span>
+                    <span><strong>Password:</strong> test1234</span>
+                </div>
+                <div className='flex flex-col items-center'>
+                    <span className='text-red-600 text-sm'>* Beware! make sure no have a space</span>
+                    <span className='text-red-600 text-sm'>before the email or password that you coppied</span>
                 </div>
             </div>
 
